@@ -21,5 +21,5 @@ pipeline {
 			echo 'Main.py is done'
 		}
 	}
-}
+
 }
