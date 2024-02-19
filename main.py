@@ -93,16 +93,12 @@ def show_db(names):
 
 
 if __name__ == "__main__":
-    #param = ['init']
-    param = ['fill']
-    #param = ['show', 'all']
-
-    if len(param) == 0:
+    if len(argv) <= 1:
         print("for create db:\tinit\nfor fill:\tfill\nfor show db:\tshow\n")
     else:
-        if param[0] == 'init':
+        if argv[1] == 'init':
             init_db()
-        if param[0] == 'fill':
+        if argv[1] == 'fill':
             fill_db()
-        if param[0] == 'show':
-            show_db(param[1])
+        if argv[1] == 'show':
+            show_db(argv[2])
