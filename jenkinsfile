@@ -14,7 +14,7 @@ pipeline {
         }
         stage("Second step") {
             steps {
-                sh 'python3 -m pytest -v --junitxml=report.xml'
+                sh 'python3 -m pytest -v --junitxml=report.xml test.py'
 				junit '*.xml'
             }
         }
