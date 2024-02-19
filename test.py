@@ -2,30 +2,30 @@ import pytest
 import os.path
 import main
 
-
-def test_create_database():  # Тест на создание БД
+# Тест на создание БД
+def test_create_database():  
     main.init_db()
     assert os.path.exists(main.db_name) == True
 
-
-def test_clients():  # Тест на наличие столбцов в Clients
+# Тест на наличие столбцов в Clients
+def test_clients():  
     assert main.Clients.name == False
     assert main.Clients.city == False
     assert main.Clients.address == False
 
-
-def test_orders():  # Тест на наличие столбцов в Orders
+# Тест на наличие столбцов в Orders
+def test_orders():  
     assert main.Orders.clients == False
     assert main.Orders.amount == False
     assert main.Orders.date == False
     assert main.Orders.description == False
 
-
-def test_sum_clients():  # Тест на наличие 10 строк в Clients
+# Тест на наличие 10 строк в Clients
+def test_sum_clients():  
     main.fill_db()
     assert len(main.Clients.select()) > 10
 
-
-def test_sum_orders():  # Тест на наличие 10 строк в Orders
+# Тест на наличие 10 строк в Orders
+def test_sum_orders():  
     main.fill_db()
     assert len(main.Orders.select()) > 10
