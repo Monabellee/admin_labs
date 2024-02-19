@@ -6,12 +6,12 @@ pipeline {
     stages {
 	      stage("Install Libraries") {
 		        steps {
-			        sh 'python3 -m pip install -r requirements.txt'
+			        sh 'python3 -m pip install -r admin_labs/requirements.txt'
 		          }
 	          }
     stage("Start Pytest") {
         steps {
-          sh 'pytest test.py --junitxml=admin_labs/report/out_report.xml'
+          sh 'pytest admin_labs/test.py --junitxml=admin_labs/report/out_report.xml'
           echo 'Pytest is ready'
           }
         }
