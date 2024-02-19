@@ -6,7 +6,7 @@ pipeline {
     stages {
 	      stage("Install Libraries") {
 		        steps {
-			        sh 'python3 -m pip install -r admin_labs/requirements.txt'
+			        sh 'python3 -m pip install -r requirements.txt'
 		          }
 	          }
     stage("Start Pytest") {
