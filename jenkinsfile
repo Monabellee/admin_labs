@@ -22,7 +22,7 @@ pipeline {
         }
 	stage("Start main program") {
 	     steps {
-		sh 'pip3 main.py start'
+		sh 'python3 main.py start'
                 echo 'Main program is ready'
             }
         }
