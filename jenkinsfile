@@ -7,15 +7,23 @@ pipeline {
         timestamps()
     }
     stages {
-        stage("First step") {
+        stage("Installing libraries") {
             steps {
                 sh 'pip3 install -r requirements.txt'
+		echo 'Libraries are ready'
             }
         }
-        stage("Second step") {
+        stage("Start pytest") {
             steps {
                 sh 'python3 -m pytest -v --junitxml=report.xml test.py'
 				junit '*.xml'
+		echo 'Pytest is ready'
+            }
+        }
+	stage("Start main program") {
+	     steps {
+		sh 'pip3 main.py start'
+                echo 'Main program is ready'
             }
         }
     }
