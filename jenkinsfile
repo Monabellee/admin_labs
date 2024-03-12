@@ -10,18 +10,21 @@ pipeline {
 		echo 'Libraries are ready'
             }
         }
-        stage("Start pytest") {
-            steps {
-                sh 'python3 -m pytest -v --junitxml=report.xml test.py'
-				junit '*.xml'
-		echo 'Pytest is ready'
-            }
-        }
-	stage("Start main program") {
-	     steps {
-		sh 'python3 main.py start'
-                echo 'Main program is ready'
-            }
-        }
-    }
-}
+        stage("Start") {
+	    	parallel {
+				stage("Start pytest") {            
+					steps {
+	                	sh 'python3 -m pytest -v --junitxml=report.xml test.py'
+						junit '*.xml'
+						echo 'Pytest is ready'
+	            		}
+	        		}
+				stage("Start main program") {
+	     			steps {
+						sh 'python3 main.py start'
+                		echo 'Main program is ready'
+            			}
+	 	 			}
+        		}
+    		}
+		}
