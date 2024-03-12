@@ -23,8 +23,9 @@ pipeline {
 	     			steps {
 						sh 'python3 main.py start'
                 		echo 'Main program is ready'
-            			}
-	 	 			}
-        		}
-    		}
-		}
+            		}
+	 	 		}
+        	}
+    	}
+	}
+}
